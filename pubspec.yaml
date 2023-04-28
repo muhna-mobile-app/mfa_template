@@ -2,6 +2,7 @@ name: mfa_template
 description: A new Flutter package project.
 version: 0.0.1
 homepage: mfa_template
+publish_to: none
 
 environment:
   sdk: ">=2.19.6 <3.0.0"
@@ -10,6 +11,21 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # Comment on these remote repositories' dependencies if you want to work with local ones
+  common_dependencies:
+    git:
+      url: "https://github.com/muhna-mobile-app/common_dependencies"
+  common_utils:
+    git:
+      url: "https://github.com/muhna-mobile-app/common_utils"
+  # Add dependencies from local repository
+  # core_app:
+  #   path: "../core_app"
+
+  # Add dependency from remote repository
+  # core_app:
+  #   git:
+  #     url: "https://github.com/muhna-mobile-app/core_app"
 
 dev_dependencies:
   flutter_test:
