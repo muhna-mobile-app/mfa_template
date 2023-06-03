@@ -11,29 +11,34 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Repositório de template para criação de novos pacotes/módulos MFA do app do MuHNA
 
-## Features
+## Configuração de novo módulo MFA
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+1. No arquivo `pubspec.yaml`, adicione na tag `name:` o nome do repositório do novo pacote. Por exemplo:
+```yaml
+name: mfa_games;
 ```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+2. Para trabalhar com repositórios remotos, adicione as dependências no `pubspec`. Exemplo:
+```yaml
+package_name:
+    git:
+      url: "https://github.com/muhna-mobile-app/package_name"
+```
+3. Para trabalhar com repositórios locais, adicione as dependências no `pubspec`. Exemplo: 
+```yaml
+package_name:
+    path: "../folder/of/package_name"
+```
+4. Na pasta `lib/app/` altere o nome do arquivo `template_app.dart` para o nome do novo app e implemente o contrato `MicroApp` diponibilizado pelo `core_app`. Exemplo:
+```dart
+//Nome do arquivo: games_app.dart
+class GamesApp implements MicroApp{}
+```
+5. Na pasta `lib/` altere o nome do arquivo `mfa_template.dart` para o nome do novo pacote e exporte o arquivo `template_app.dart` (renomeado) e demais arquivos exportáveis do novo pacote. Exemplo:
+```dart
+//Nome do arquivo: mfa_games.dart
+library mfa_games;
+export 'app/games_app.dart'
+```
+As pastas `data/`, `domain/` e `presentation/` (no diretório `lib/app/`) possuem arquivos de template para guiar a estrutura de desenvolvimento dos MFAs.
